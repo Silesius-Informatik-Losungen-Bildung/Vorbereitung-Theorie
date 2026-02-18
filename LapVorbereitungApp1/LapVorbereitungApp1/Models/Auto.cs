@@ -1,12 +1,10 @@
-﻿
-
-namespace LapVorbereitungApp1
+﻿namespace LapVorbereitungApp1.Models
 {
     public sealed class Auto : Fahrzeug
     {
-        public Auto(string marke, string modell): base(marke, modell)
+        public Auto(string marke, string modell) : base(marke, modell)
         {
-        
+
         }
         public Auto()
         {

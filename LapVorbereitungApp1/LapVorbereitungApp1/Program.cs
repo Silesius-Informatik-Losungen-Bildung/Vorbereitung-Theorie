@@ -1,10 +1,16 @@
-﻿namespace LapVorbereitungApp1
+﻿using LapVorbereitungApp1.Models;
+
+namespace LapVorbereitungApp1
 {
     internal class Program
     {
         static void Main(string[] args)
         {
+            Unterricht17022026();
+        }
 
+        private static void Unterricht17022026()
+        {
             // Prozedurall
 
             var auto1Marke = "Suzuki";
@@ -76,7 +82,7 @@
             // Zuweisung bedeutet nur: Wert kopieren.
             // Es entsteht keine dauerhafte Verbindung zwischen a2 und a1.
             a1 = new Auto() { Marke = "VW" }; // Heap: 2b
-           
+
             Console.WriteLine(a2.Marke);
 
 
@@ -89,11 +95,6 @@
             var f2 = f1;
 
             f1 = new Fahrrad() { Marke = "KTM" };
-
-
-
-    
-
         }
     }
 }

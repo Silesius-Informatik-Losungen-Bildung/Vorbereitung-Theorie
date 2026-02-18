@@ -1,4 +1,4 @@
-﻿namespace LapVorbereitungApp1
+﻿namespace LapVorbereitungApp1.Models
 {
     public abstract class Fahrzeug
     {
@@ -24,9 +24,9 @@
         // Konstruktor
         public Fahrzeug(string marke, string? modell)
         {
-            Marke = marke; 
+            Marke = marke;
             Modell = modell;
-        }   
+        }
 
         // Property / Eigenschaft / Attribut 
         public string Marke
