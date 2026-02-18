@@ -6,10 +6,10 @@ namespace LapVorbereitungApp1
     {
         static void Main(string[] args)
         {
-            Unterricht17022026();
+            Unterricht_17022026();
         }
 
-        private static void Unterricht17022026()
+        private static void Unterricht_17022026()
         {
             // Prozedurall
 
