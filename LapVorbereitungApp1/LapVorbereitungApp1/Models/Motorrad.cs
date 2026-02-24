@@ -2,13 +2,13 @@
 
 namespace LapVorbereitungApp1.Models
 {
-    public sealed class Auto : Fahrzeug, ILkw
+    public sealed class Motorrad : Fahrzeug
     {
-        public Auto(string marke, string modell) : base(marke, modell)
+        public Motorrad(string marke, string modell) : base(marke, modell)
         {
 
         }
-        public Auto()
+        public Motorrad()
         {
             _marke = "XX";
         }
@@ -23,7 +23,7 @@ namespace LapVorbereitungApp1.Models
 
         public override string Farbe()
         {
-            return "blau";
+            return "rot";
         }
 
         public override int AnzahlRaeder()

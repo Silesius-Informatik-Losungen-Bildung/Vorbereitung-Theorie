@@ -1,4 +1,6 @@
-﻿using LapVorbereitungApp1.Models;
+﻿using InterfaceDemo;
+using LapVorbereitungApp1.Models;
+using System.Linq.Expressions;
 
 namespace LapVorbereitungApp1
 {
@@ -6,7 +8,61 @@ namespace LapVorbereitungApp1
     {
         static void Main(string[] args)
         {
-            Unterricht_17022026();
+            // Unterricht_17022026();
+
+            Unterricht_24022026();
+        }
+
+        private static void Unterricht_24022026()
+        {
+            //var auto = new Auto();
+            //Console.WriteLine(auto.HatMehrAls4Räder);
+
+            // Alte Schule
+            // ❌ stark gekoppelt
+            //Logger logger = new Logger();
+            //logger.Log("Hallo, ein Fehler ist da");
+
+            // 
+            ILogger logger1;
+            ILogger logger2;
+
+            logger1 = new LogDb();
+            logger1.Log("blablabal");
+
+            logger2 = new LogFile();
+            logger2.Log("blablabal");
+
+
+            List<ILogger> list = new List<ILogger>();
+            list.Add(logger1);
+            list.Add(logger2);
+
+
+            foreach (ILogger logger in list)
+            {
+                logger.Log("§");
+            }
+
+            var auto = new Auto();
+            var fr = new Fahrrad();
+            var mr = new Motorrad();
+
+            var fzgList = new List<Fahrzeug>() { auto,  mr };
+
+            foreach(var  f in fzgList)
+            {
+                Console.WriteLine(f.Farbe());
+            }
+
+            
+
+
+
+
+
+
+
         }
 
         private static void Unterricht_17022026()
