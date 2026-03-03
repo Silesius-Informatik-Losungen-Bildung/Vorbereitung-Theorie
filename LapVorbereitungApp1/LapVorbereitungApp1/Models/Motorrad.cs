@@ -4,6 +4,9 @@ namespace LapVorbereitungApp1.Models
 {
     public sealed class Motorrad : Fahrzeug
     {
+        // Instanz-Variable
+        private int _türenAnzahl;
+
         public Motorrad(string marke, string modell) : base(marke, modell)
         {
 
@@ -13,10 +16,29 @@ namespace LapVorbereitungApp1.Models
             _marke = "XX";
         }
 
-        public int TürenAnzahl { get; set; }
+        public int TürenAnzahl
+        {
+            get
+            {
+                return _türenAnzahl;
+            }
+            set
+            {
+                _türenAnzahl = value;
+            }
+        }
+
+        // Statisches Mitglied
+        public static int CalcFussRaster()
+        {
+            return 12;
+        }
+
+
         public bool HatMehrAls4Räder
         {
-            get { 
+            get
+            {
                 return true;
             }
         }

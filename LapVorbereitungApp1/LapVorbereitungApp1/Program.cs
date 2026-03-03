@@ -1,6 +1,8 @@
 ﻿using InterfaceDemo;
 using LapVorbereitungApp1.Models;
 using System.Linq.Expressions;
+using System.Net.Http.Headers;
+using System.Xml.Linq;
 
 namespace LapVorbereitungApp1
 {
@@ -8,10 +10,137 @@ namespace LapVorbereitungApp1
     {
         static void Main(string[] args)
         {
-            // Unterricht_17022026();
-
+            Unterricht_17022026();
             Unterricht_24022026();
+            Unterricht_03032026();
         }
+
+        private static void Unterricht_03032026()
+        {
+            // Ein Array ist ein zusammenhängender "Speicherblock",
+            // in dem alle Elemente direkt hintereinander liegen.
+
+            // Beispiel mit Werte-Datentyp
+            int[] zahlen = new int[5];
+            zahlen[0] = 6; // fiktive Adresse = 1000
+            zahlen[1] = 23;
+            zahlen[2] = 98;
+            zahlen[3] = 55; // 1012
+            zahlen[4] = 66;
+
+            var zahl = zahlen[3];
+
+            // Wo ist im Speicher zahlen[3]?
+            // Formel:
+            //      Adresse = Startadresse + (index * GrößeDesAktulleAbzufragendenArrayElements)
+            //      Adresse von zahlen[3] = 1000 + (3 * 4) 
+
+
+            // es wird ein Array mit 0 Plätzen angelegt
+            // (s.g dynamisches Array)
+            // List<T> = verwaltetes Array
+
+            // Beispiel mit Referenz-Datentyp
+            string[] woerter = new string[5];
+            woerter[0] = "dddd"; // fiktive Adresse = 1000
+            woerter[1] = "eeeee"; ;
+            woerter[2] = "44"; ;
+            woerter[3] = "ddd"; ; // 1024
+            woerter[4] = "dddd";
+
+            var w = woerter[3];
+
+            // Wo ist im Speicher woerter[3]?
+            // Formel:
+            //      Adresse = Startadresse + (index * GrößeDesAktulleAbzufragendenArrayElements)
+            //      Adresse von zahlen[3] = 1000 + (3 * 8) 8 Byte wird reserviert für die Ablage eines Verweises
+
+
+            // es wird ein Array mit 0 Plätzen angelegt
+            // (s.g dynamisches Array)
+            // List<T> = verwaltetes Array
+
+            List<int> zahlenList = new List<int>();
+
+
+            foreach (var z in zahlen)
+            {
+                // Speicherung in z macht es langsamer
+
+            }
+
+            // Antipattern, weil wie foreach
+            for (int i = 0; i < zahlenList.Count; i++)
+            {
+                // Speicherung in z macht es langsamer
+                var z = zahlenList[i];
+            }
+
+            // Gutes Pattern
+            for (int i = 0; i < zahlenList.Count; i++)
+            {
+                // Abruf mit Index immer schnell
+                zahlenList[i] = i;
+                zahlenList[i] =+ zahlenList[i];
+            }
+
+            //--------------------------------------------------
+            // Verkette Liste
+            LinkedList<int> list = new LinkedList<int>();
+
+            // Suche nacht Elementen langsam
+            // Hinzufügen, Löschen, Reverse.. sehr schell 
+
+
+            // Statische Klassen
+            var d = Config.WichigeSetingsAusDerDB;
+
+            var m = new Motorrad();
+            
+            // Abruf von Static-Func (kein Instanz-Mitglied)
+            var fr = Motorrad.CalcFussRaster();
+
+            var dt = new DateTime();
+            dt.Subtract(dt);
+
+            var jetzt = DateTime.Now;
+
+
+            var a = new Auto() { TürenAnzahl = 2 };
+
+            ChangeAuto1(a);
+            Console.WriteLine(a.TürenAnzahl);
+
+            //var a2 = ChangeAuto2(a);
+
+
+            void ChangeAuto1(Auto auto)
+            {
+                auto.TürenAnzahl = 4;
+            }
+
+
+            Auto ChangeAuto2(Auto auto)
+            {
+                auto.TürenAnzahl = 4;
+                return auto;
+            }
+
+
+            var f = new Fahrrad() { Marke = "MTK" };
+
+            ChangeFahrrad(f);
+            Console.WriteLine(f.Marke);
+
+
+            void ChangeFahrrad(Fahrrad auto)
+            {
+                auto.Marke = "KTM";
+            }
+
+
+        }
+
 
         private static void Unterricht_24022026()
         {
